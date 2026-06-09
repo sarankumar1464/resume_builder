@@ -1,71 +1,162 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Resume Builder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/d85c84292b.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <div class="flex flex-row   w-1/2  mt-10">
-    <div class="form-container flex flex-col justify-center content-center justify-evenly">
-      <form class="p-4">
-        <div class="m-4">
-          <label for="name-input" >Name:</label>
-          <input type="text" placeholder="Enter your name" id="name-input"  class="p-2 rounded-lg bg-gray-200 min-w-sm"/>
-        </div>
-        <div class="m-4">
-            <label for="email-input" >Email:</label>
-            <input type="email" placeholder="Enter your email" id="email-input" class="p-2 rounded-lg bg-gray-200 min-w-sm"/>
-        </div>
-        <div class="m-4">
-            <label for="phone-input" >Phone:</label>
-            <input type="tel" placeholder="Enter your phone number" id="phone-input" class="p-2 rounded-lg bg-gray-200 min-w-sm" />
-        </div>
-        <div class="m-4">
-            <label for="profile-summary-input" >Profile Summary:</label>
-            <textarea placeholder="Write a brief profile summary" id="profile-summary-input" class="p-2 rounded-lg bg-gray-200 min-w-sm"></textarea>
-        </div>
-        <div class="m-4">
-            <label for="education-input">Education:</label>
-            <input type="text" placeholder="Enter your education details" id="education-input" class="p-2 rounded-lg bg-gray-200 min-w-sm"/>
-        </div>
-        <div class="flex flex-col m-4">
-            <label for="skills-input" >Skills:</label>
-            <input type="checkbox" value="Python"  id="skills-input-python" class="mr-2" /> Python
-            <input type="checkbox" value="HTML/CSS"  id="skills-input-html-css" class="mr-2" /> HTML/CSS' 
-            <input type="checkbox" value="React"  id="skills-input-react" class="mr-2" /> React
-            <input type="checkbox" value="Node.js" id="skills-input-nodejs" class="mr-2 "/> Node.js
-        </div>
-        <div class="m-4">
-            <label for="experience-input" >Experience:</label>
-            <input type="text" placeholder="Enter your work experience" id="experience-input"  class="p-2 rounded-lg bg-gray-200 min-w-sm" />
+  <body class="min-h-screen bg-slate-50 text-slate-900">
+    <main class="max-w-6xl mx-auto px-4 py-8">
+      <header class="mb-10 text-center">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">Resume Builder</h1>
+        <p class="mt-3 text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">Fill in your details and watch the resume preview update instantly. Works on phones, tablets, and desktop screens.</p>
+      </header>
+
+      <section class="grid gap-8 lg:grid-cols-[1fr_1.05fr] items-start">
+        <div class="form-container w-full">
+          <form class="w-full space-y-5 p-6 sm:p-8 bg-white rounded-3xl shadow-xl border border-slate-200">
+            <div>
+              <label for="name-input" class="block mb-2 text-sm font-semibold text-slate-700">Name</label>
+              <input type="text" placeholder="Enter your name" id="name-input" class="w-full px-4 py-3 rounded-2xl bg-slate-100 border border-slate-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-200 outline-none" />
+            </div>
+
+            <div>
+              <label for="email-input" class="block mb-2 text-sm font-semibold text-slate-700">Email</label>
+              <input type="email" placeholder="Enter your email" id="email-input" class="w-full px-4 py-3 rounded-2xl bg-slate-100 border border-slate-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-200 outline-none" />
+            </div>
+
+            <div>
+              <label for="phone-input" class="block mb-2 text-sm font-semibold text-slate-700">Phone</label>
+              <input type="tel" placeholder="Enter your phone number" id="phone-input" class="w-full px-4 py-3 rounded-2xl bg-slate-100 border border-slate-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-200 outline-none" />
+            </div>
+
+            <div>
+              <label for="profile-summary-input" class="block mb-2 text-sm font-semibold text-slate-700">Profile Summary</label>
+              <textarea placeholder="Write a brief profile summary" id="profile-summary-input" class="w-full px-4 py-3 rounded-2xl bg-slate-100 border border-slate-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-200 outline-none resize-vertical min-h-[7rem]"></textarea>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-[1fr_1fr]">
+              <div>
+                <label for="experience-title-input" class="block mb-2 text-sm font-semibold text-slate-700">Experience title</label>
+                <input type="text" placeholder="Senior Developer — Acme Corp" id="experience-title-input" class="w-full px-4 py-3 rounded-2xl bg-slate-100 border border-slate-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-200 outline-none" />
+              </div>
+              <div>
+                <label for="experience-duration-input" class="block mb-2 text-sm font-semibold text-slate-700">Duration</label>
+                <input type="text" placeholder="Jan 2022 - Present" id="experience-duration-input" class="w-full px-4 py-3 rounded-2xl bg-slate-100 border border-slate-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-200 outline-none" />
+              </div>
+            </div>
+            <div>
+              <label for="experience-input" class="block mb-2 text-sm font-semibold text-slate-700">Experience details</label>
+              <textarea placeholder="Describe your role, achievements, and technologies used" id="experience-input" class="w-full px-4 py-3 rounded-2xl bg-slate-100 border border-slate-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-200 outline-none resize-vertical min-h-[7rem]"></textarea>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-[1fr_1fr]">
+              <div>
+                <label for="education-degree-input" class="block mb-2 text-sm font-semibold text-slate-700">Degree / Institution</label>
+                <input type="text" placeholder="B.Sc. Computer Science — State University" id="education-degree-input" class="w-full px-4 py-3 rounded-2xl bg-slate-100 border border-slate-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-200 outline-none" />
+              </div>
+              <div>
+                <label for="education-duration-input" class="block mb-2 text-sm font-semibold text-slate-700">Year</label>
+                <input type="text" placeholder="2020 - 2024" id="education-duration-input" class="w-full px-4 py-3 rounded-2xl bg-slate-100 border border-slate-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-200 outline-none" />
+              </div>
+            </div>
+            <div>
+              <label for="education-input" class="block mb-2 text-sm font-semibold text-slate-700">Education details</label>
+              <textarea placeholder="Add coursework, honors, or certifications" id="education-input" class="w-full px-4 py-3 rounded-2xl bg-slate-100 border border-slate-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-200 outline-none resize-vertical min-h-[7rem]"></textarea>
+            </div>
+
+            <fieldset class="rounded-3xl border border-slate-200 bg-slate-50 p-4">
+              <legend class="px-2 text-sm font-semibold text-slate-700">Skills</legend>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+                <label class="inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-3 border border-slate-200 cursor-pointer hover:border-slate-400">
+                  <input type="checkbox" value="Python" id="skills-input-python" class="rounded text-sky-600 focus:ring-sky-500" />
+                  <span class="text-slate-700">Python</span>
+                </label>
+                <label class="inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-3 border border-slate-200 cursor-pointer hover:border-slate-400">
+                  <input type="checkbox" value="HTML/CSS" id="skills-input-html-css" class="rounded text-sky-600 focus:ring-sky-500" />
+                  <span class="text-slate-700">HTML/CSS</span>
+                </label>
+                <label class="inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-3 border border-slate-200 cursor-pointer hover:border-slate-400">
+                  <input type="checkbox" value="React" id="skills-input-react" class="rounded text-sky-600 focus:ring-sky-500" />
+                  <span class="text-slate-700">React</span>
+                </label>
+                <label class="inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-3 border border-slate-200 cursor-pointer hover:border-slate-400">
+                  <input type="checkbox" value="Node.js" id="skills-input-nodejs" class="rounded text-sky-600 focus:ring-sky-500" />
+                  <span class="text-slate-700">Node.js</span>
+                </label>
+                <label class="inline-flex items-center gap-3 rounded-2xl bg-white px-4 py-3 border border-slate-200 cursor-pointer hover:border-slate-400">
+                  <input type="checkbox" value="Other" id="skills-input-other" class="rounded text-sky-600 focus:ring-sky-500" />
+                  <span class="text-slate-700">Other</span>
+                </label>
+              </div>
+            </fieldset>
+            <div id="skill-other-container" class="hidden mt-4">
+              <label for="skills-input-other-text" class="block mb-2 text-sm font-semibold text-slate-700">Other skill</label>
+              <input type="text" id="skills-input-other-text" placeholder="Enter your custom skill" class="w-full px-4 py-3 rounded-2xl bg-slate-100 border border-slate-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-200 outline-none" />
+            </div>
+          </form>
         </div>
 
-      </form>
-    </div>
-    <div class="preview-container w-1/2 mx-auto mt-10 ">
-        <h1 id="name"></h1>
-        <div>
-            <p id="email"></p>
-            <p id="phone"></p>
-        </div><hr/>
-        <div>
-            <h2 class="text-xl font-bold bg-gray-200 p-2">SUMMARY</h2>
-            <p id="summary-paragraph"></p>
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <h2 class="text-xl font-semibold text-slate-900">Resume Preview</h2>
+              <p class="text-sm text-slate-500">Download your finished resume as a PDF.</p>
+            </div>
+            <button id="download-resume-button" class="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-sky-600 text-white font-semibold shadow hover:bg-sky-700 transition">Download PDF</button>
+          </div>
+          <div class="preview-container w-full p-6 sm:p-8 bg-white rounded-3xl shadow-xl border border-slate-200" id="preview-container">
+            <div class="space-y-4">
+            <div>
+              <h1 id="name" class="text-2xl sm:text-3xl font-semibold text-slate-900 text-center"></h1>
+              <div class="mt-3 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm sm:text-base text-slate-600">
+                <p id="email" class="inline-flex items-center gap-2"></p>
+                <p id="phone" class="inline-flex items-center gap-2"></p>
+              </div>
+            </div>
+
+            <hr class="border-slate-200" />
+
+            <div class="space-y-3">
+              <h2 class="text-sm font-semibold text-slate-700 uppercase tracking-[0.18em] bg-slate-100 rounded-2xl py-2 text-center">Summary</h2>
+              <p id="summary-paragraph" class="text-slate-700 leading-7"></p>
+            </div>
+
+            <div class="space-y-3">
+              <h2 class="text-sm font-semibold text-slate-700 uppercase tracking-[0.18em] bg-slate-100 rounded-2xl py-2 text-center">Experience</h2>
+              <div class="rounded-3xl border border-slate-200 bg-slate-50 p-4">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <p id="experience-title" class="text-lg font-semibold text-slate-900"></p>
+                  <p id="experience-duration" class="text-sm text-slate-500"></p>
+                </div>
+                <p id="experience-paragraph" class="mt-3 text-slate-700 leading-7"></p>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <h2 class="text-sm font-semibold text-slate-700 uppercase tracking-[0.18em] bg-slate-100 rounded-2xl py-2 text-center">Education</h2>
+              <div class="rounded-3xl border border-slate-200 bg-slate-50 p-4">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <p id="education-degree" class="text-lg font-semibold text-slate-900"></p>
+                  <p id="education-duration" class="text-sm text-slate-500"></p>
+                </div>
+                <p id="education-paragraph" class="mt-3 text-slate-700 leading-7"></p>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <h2 class="text-sm font-semibold text-slate-700 uppercase tracking-[0.18em] bg-slate-100 rounded-2xl py-2 text-center">Skills</h2>
+              <ul id="skills-list" class="list-disc pl-6 space-y-2 text-slate-700"></ul>
+            </div>
+          </div>
         </div>
-      <div>
-        <h2 class="text-xl font-bold bg-gray-200 p-2">EXPERIENCE</h2>
-        <p id="experience-paragraph"></p>
-      </div>
-      <div>
-        <h2 class="text-xl font-bold bg-gray-200 p-2">EDUCATION</h2>
-        <p id="education-paragraph"></p>
-      </div>
-        <div>
-            <h2 class="text-xl font-bold bg-gray-200 p-2">SKILLS</h2>
-            <ul id="skills-list"></ul>
-    </div>
-    </div>
+      </section>
+    </main>
+
+    <script src="index.js"></script>
   </body>
 </html>
