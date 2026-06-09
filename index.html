@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head> </head>
+  <body>
+    <div class="form-container">
+      <form>
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username" id="username" />
+        <label for="email">Email</label>
+        <input type="text" placeholder="Email" id="email" />
+        <label for="number">Phone Number</label>
+        <input
+          type="tel"
+          name="phone"
+          placeholder="123-456-7890"
+          pattern="[0-9]{10}"
+          id="number"
+        />
+        <label for="summary">Summary</label>
+        <textarea
+          placeholder="Summary"
+          id="summary"
+          rows="5"
+          cols="50"
+        ></textarea>
+        <label for="degree">Education</label>
+        <select id="degree">
+          <option value="B-Tech">B-Tech</option>
+          <option value="M-Tech">M-Tech</option>
+          <option value="PhD">PhD</option>
+          <option value="Other">Other</option>
+        </select>
+        <input
+          type="text"
+          id="other-degree"
+          placeholder="Enter your degree"
+          style="display: none"
+        />
+        <div id="skills-container">
+          <label>Skills</label><br />
+        <input type="checkbox" id="html" value="HTML" />
+        <label for="html">HTML</label><br />
+        <input type="checkbox" id="css" value="CSS" />
+        <label for="css">CSS</label><br />
+        <input type="checkbox" id="javascript" value="JavaScript" />
+        <label for="javascript">JavaScript</label><br />
+        <input type="checkbox" id="python" value="Python" />
+        <label for="python">Python</label><br />
+        <input type="checkbox" id="java" value="Java" />īī
+        <label for="java">Java</label><br />
+        <input type="checkbox" id="other" value="Other" />
+        <label for="other">Other</label><br /><input
+          type="text"
+          id="other-skill-input"
+          placeholder="Enter skill"
+          style="display: none"/>
+      </form>
+    </div>
+
+    <div id="experience-container">
+        <h3>Experience</h3>
+      <div class="experience-row">
+        <input type="text" placeholder="Company Name">
+        <input type="text" placeholder="Role">
+        <input type="text" placeholder="Duration">
+      </div>
+   </div>
+
+    <button type="button" id="add-experience">
+    Add Experience
+    </button>
+
+  </body>
+  
+  </html>
