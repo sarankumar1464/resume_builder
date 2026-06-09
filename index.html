@@ -1,75 +1,71 @@
 <!doctype html>
 <html>
-  <head> </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
   <body>
-    <div class="form-container">
-      <form>
-        <label for="username">Username</label>
-        <input type="text" placeholder="Username" id="username" />
-        <label for="email">Email</label>
-        <input type="text" placeholder="Email" id="email" />
-        <label for="number">Phone Number</label>
-        <input
-          type="tel"
-          name="phone"
-          placeholder="123-456-7890"
-          pattern="[0-9]{10}"
-          id="number"
-        />
-        <label for="summary">Summary</label>
-        <textarea
-          placeholder="Summary"
-          id="summary"
-          rows="5"
-          cols="50"
-        ></textarea>
-        <label for="degree">Education</label>
-        <select id="degree">
-          <option value="B-Tech">B-Tech</option>
-          <option value="M-Tech">M-Tech</option>
-          <option value="PhD">PhD</option>
-          <option value="Other">Other</option>
-        </select>
-        <input
-          type="text"
-          id="other-degree"
-          placeholder="Enter your degree"
-          style="display: none"
-        />
-        <div id="skills-container">
-          <label>Skills</label><br />
-        <input type="checkbox" id="html" value="HTML" />
-        <label for="html">HTML</label><br />
-        <input type="checkbox" id="css" value="CSS" />
-        <label for="css">CSS</label><br />
-        <input type="checkbox" id="javascript" value="JavaScript" />
-        <label for="javascript">JavaScript</label><br />
-        <input type="checkbox" id="python" value="Python" />
-        <label for="python">Python</label><br />
-        <input type="checkbox" id="java" value="Java" />īī
-        <label for="java">Java</label><br />
-        <input type="checkbox" id="other" value="Other" />
-        <label for="other">Other</label><br /><input
-          type="text"
-          id="other-skill-input"
-          placeholder="Enter skill"
-          style="display: none"/>
+    <div class="flex flex-row   w-1/2  mt-10">
+    <div class="form-container flex flex-col justify-center content-center justify-evenly">
+      <form class="p-4">
+        <div class="m-4">
+          <label for="name-input" >Name:</label>
+          <input type="text" placeholder="Enter your name" id="name-input"  class="p-2 rounded-lg bg-gray-200 min-w-sm"/>
+        </div>
+        <div class="m-4">
+            <label for="email-input" >Email:</label>
+            <input type="email" placeholder="Enter your email" id="email-input" class="p-2 rounded-lg bg-gray-200 min-w-sm"/>
+        </div>
+        <div class="m-4">
+            <label for="phone-input" >Phone:</label>
+            <input type="tel" placeholder="Enter your phone number" id="phone-input" class="p-2 rounded-lg bg-gray-200 min-w-sm" />
+        </div>
+        <div class="m-4">
+            <label for="profile-summary-input" >Profile Summary:</label>
+            <textarea placeholder="Write a brief profile summary" id="profile-summary-input" class="p-2 rounded-lg bg-gray-200 min-w-sm"></textarea>
+        </div>
+        <div class="m-4">
+            <label for="education-input">Education:</label>
+            <input type="text" placeholder="Enter your education details" id="education-input" class="p-2 rounded-lg bg-gray-200 min-w-sm"/>
+        </div>
+        <div class="flex flex-col m-4">
+            <label for="skills-input" >Skills:</label>
+            <input type="checkbox" value="Python"  id="skills-input-python" class="mr-2" /> Python
+            <input type="checkbox" value="HTML/CSS"  id="skills-input-html-css" class="mr-2" /> HTML/CSS' 
+            <input type="checkbox" value="React"  id="skills-input-react" class="mr-2" /> React
+            <input type="checkbox" value="Node.js" id="skills-input-nodejs" class="mr-2 "/> Node.js
+        </div>
+        <div class="m-4">
+            <label for="experience-input" >Experience:</label>
+            <input type="text" placeholder="Enter your work experience" id="experience-input"  class="p-2 rounded-lg bg-gray-200 min-w-sm" />
+        </div>
+
       </form>
     </div>
-
-    <div id="experience-container">
-        <h3>Experience</h3>
-      <div class="experience-row">
-        <input type="text" placeholder="Company Name">
-        <input type="text" placeholder="Role">
-        <input type="text" placeholder="Duration">
+    <div class="preview-container w-1/2 mx-auto mt-10 ">
+        <h1 id="name"></h1>
+        <div>
+            <p id="email"></p>
+            <p id="phone"></p>
+        </div><hr/>
+        <div>
+            <h2 class="text-xl font-bold bg-gray-200 p-2">SUMMARY</h2>
+            <p id="summary-paragraph"></p>
+        </div>
+      <div>
+        <h2 class="text-xl font-bold bg-gray-200 p-2">EXPERIENCE</h2>
+        <p id="experience-paragraph"></p>
       </div>
-   </div>
-
-    <button type="button" id="add-experience">
-    Add Experience
-    </button>
-
+      <div>
+        <h2 class="text-xl font-bold bg-gray-200 p-2">EDUCATION</h2>
+        <p id="education-paragraph"></p>
+      </div>
+        <div>
+            <h2 class="text-xl font-bold bg-gray-200 p-2">SKILLS</h2>
+            <ul id="skills-list"></ul>
+    </div>
+    </div>
   </body>
-  
-  </html>
+</html>
